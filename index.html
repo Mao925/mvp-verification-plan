@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVP検証計画ジェネレーター</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 基本フォント設定 */
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: #0f172a; /* ダークな背景色 (slate-900) */
+        }
+        /* ガラスのような質感（グラスモーフィズム）のためのスタイル */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5); /* 半透明の背景 (slate-800/50) */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* テキストのグラデーション */
+        .text-gradient {
+            background-image: linear-gradient(to right, #9ca3af, #e5e7eb); /* gray-400 to gray-200 */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        /* フェードインアニメーション */
+        .fade-in {
+            animation: fadeIn 0.7s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* コピー成功メッセージのスタイル */
+        .message-box {
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        /* テキストエリアのフォーカス時のリングエフェクト */
+        .focus-ring-gradient:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.6); /* gray-500相当 */
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300">
+
+    <div class="container mx-auto max-w-4xl p-4 sm:p-6 md:p-8 min-h-screen flex flex-col justify-center">
+        
+        <header class="text-center mb-10 fade-in">
+            <h1 class="text-4xl sm:text-5xl font-bold text-gradient mb-3">MVP検証計画</h1>
+            <p class="text-slate-400 text-lg">具体的なMVP検証計画を、迅速に作成します。</p>
+        </header>
+
+        <main class="glass-card p-6 sm:p-8 rounded-2xl shadow-2xl shadow-slate-800/20 space-y-8 fade-in" style="animation-delay: 0.2s;">
+
+            <!-- Step 1: How to Use -->
+            <section id="how-to-use">
+                <div class="flex items-start gap-4 sm:gap-6">
+                    <div class="flex-shrink-0 border-2 border-slate-500/50 text-slate-300 rounded-full h-10 w-10 flex items-center justify-center font-bold text-lg shadow-inner shadow-slate-900/50">1</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-100 mb-4">使い方ガイド</h2>
+                        <div class="space-y-5 text-slate-300">
+                            <div>
+                                <h3 class="font-semibold text-slate-200 mb-2 flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                                    推奨AIモデル
+                                </h3>
+                                <p>このプロンプトは、ビジネス分析とプロダクトマネジメント能力に優れたAIモデルで最高の性能を発揮します。</p>
+                                <ul class="list-disc list-inside mt-2 pl-2 space-y-1 text-slate-400">
+                                    <li><strong>Google: Gemini 2.5 Pro</strong></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-slate-200 mb-2 flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" /></svg>
+                                    利用フロー
+                                </h3>
+                                <ol class="list-decimal list-inside mt-2 pl-2 space-y-1 text-slate-400">
+                                    <li>下の入力欄に、「施策概要」と「検証したい仮説」を入力します。</li>
+                                    <li>「プロンプトを生成」ボタンで、AIへの指示文が完成します。</li>
+                                    <li>「コピー」ボタンで指示文をコピーし、AIに貼り付けて実行します。</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="border-slate-700/80">
+
+            <!-- Step 2: Input Data -->
+            <section id="input-section">
+                <div class="flex items-start gap-4 sm:gap-6">
+                    <div class="flex-shrink-0 border-2 border-slate-500/50 text-slate-300 rounded-full h-10 w-10 flex items-center justify-center font-bold text-lg shadow-inner shadow-slate-900/50">2</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-100 mb-4">施策概要と仮説を入力</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <label for="solutionOutlineInput" class="block text-lg font-medium text-slate-300 mb-2">【施策概要】</label>
+                                <textarea id="solutionOutlineInput" rows="3" class="w-full p-4 bg-slate-900/70 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-500 transition duration-150 focus-ring-gradient" placeholder="例：料理好きだが忙しい社会人向けに、週末に1週間分の健康的な食事が作れるミールキット宅配サービス。"></textarea>
+                            </div>
+                            <div>
+                                <label for="hypothesisInput" class="block text-lg font-medium text-slate-300 mb-2">【検証したい仮説】</label>
+                                <textarea id="hypothesisInput" rows="4" class="w-full p-4 bg-slate-900/70 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-500 transition duration-150 focus-ring-gradient" placeholder="例：ユーザーは、レシピを探す手間を省けるなら、月額5,000円を支払う意思がある。"></textarea>
+                            </div>
+                        </div>
+                        <button id="generateBtn" class="mt-6 w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-slate-500 to-slate-600 text-white font-bold rounded-lg shadow-lg hover:shadow-slate-500/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-slate-400 transition-all duration-300 transform hover:scale-105">
+                            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zM3.75 6a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15A.75.75 0 013.75 6zm0 12a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75z" />
+                            </svg>
+                            プロンプトを生成
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="border-slate-700/80">
+
+            <!-- Step 3: Output -->
+            <section id="output-section" class="hidden">
+                <div class="flex items-start gap-4 sm:gap-6">
+                    <div class="flex-shrink-0 border-2 border-slate-500/50 text-slate-300 rounded-full h-10 w-10 flex items-center justify-center font-bold text-lg shadow-inner shadow-slate-900/50">3</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-100 mb-3">生成されたプロンプト</h2>
+                        <div class="relative">
+                            <pre class="w-full bg-slate-900 border border-slate-700 rounded-lg p-4 pr-14 text-sm text-slate-300 overflow-x-auto whitespace-pre-wrap"><code id="promptOutput"></code></pre>
+                            <button id="copyBtn" title="コピーする" class="absolute top-3 right-3 p-2 bg-slate-700/80 text-slate-400 rounded-lg hover:bg-slate-600/80 hover:text-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-slate-400">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Copy Success Message -->
+    <div id="messageBox" class="message-box fixed bottom-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-slate-600 to-slate-700 text-white py-2 px-5 rounded-full shadow-lg opacity-0 -translate-y-5 pointer-events-none">
+        コピーしました！
+    </div>
+
+    <script>
+        const solutionOutlineInput = document.getElementById('solutionOutlineInput');
+        const hypothesisInput = document.getElementById('hypothesisInput');
+        const generateBtn = document.getElementById('generateBtn');
+        const outputSection = document.getElementById('output-section');
+        const promptOutput = document.getElementById('promptOutput');
+        const copyBtn = document.getElementById('copyBtn');
+        const messageBox = document.getElementById('messageBox');
+
+        const promptTemplate = `
+# 命令書
+
+あなたは経験豊富なプロダクトマネージャーです。
+この後に提示する「入力情報」に基づいて、MVP（Minimum Viable Product）の検証計画を、具体的で実行可能な形式で作成してください。
+
+# 出力形式
+
+以下の全ての項目について、具体的かつ定量的に記述されたMVP検証計画を提案してください。
+
+1.  **内容:**
+    仮説を検証するために、どのようなプロダクトや手法を、どのようなユーザーを対象に提供するのかを具体的に記述してください。システム開発を最小限にするための手動でのオペレーション（例：SNS、スプレッドシート、手動マッチングなど）を積極的に活用する案を盛り込んでください。
+
+2.  **期間:**
+    MVPの準備から実施、結果の分析まで含めた全体の期間を設定してください。
+
+3.  **予算:**
+    MVPの実施に必要な費用を算出し、その内訳（例：広告費、会場費、外注費、雑費など）を明記してください。
+
+4.  **計測する指標:**
+    仮説が正しいかどうかを判断するための、定量的・定性的な指標を複数挙げてください。なぜその指標が仮説検証において重要なのかも簡潔に説明してください。
+
+5.  **成功基準:**
+    計測する指標がどのような状態になれば、この仮説検証が「成功」と見なせるのか、具体的な数値目標を設定してください。
+
+# 補足事項
+
+* 施策概要と仮説から、最もシンプルかつ低コストで検証できる現実的な方法を提案してください。
+* 専門用語には必要に応じて簡単な解説を加えてください。
+* 各項目について、なぜそのように設定したのかという理由も簡潔に添えてください。
+
+# 入力情報
+
+## 施策概要
+{{SOLUTION_OUTLINE}}
+
+## 検証したい仮説
+{{HYPOTHESIS}}
+`.trim();
+
+        generateBtn.addEventListener('click', () => {
+            const solutionOutline = solutionOutlineInput.value.trim();
+            const hypothesis = hypothesisInput.value.trim();
+
+            let hasError = false;
+            if (!solutionOutline) {
+                solutionOutlineInput.classList.add('animate-shake');
+                setTimeout(() => solutionOutlineInput.classList.remove('animate-shake'), 500);
+                hasError = true;
+            }
+            if (!hypothesis) {
+                hypothesisInput.classList.add('animate-shake');
+                setTimeout(() => hypothesisInput.classList.remove('animate-shake'), 500);
+                hasError = true;
+            }
+
+            if (hasError) {
+                if (!solutionOutline) solutionOutlineInput.focus();
+                else hypothesisInput.focus();
+                return;
+            }
+            
+            let finalPrompt = promptTemplate.replace('{{SOLUTION_OUTLINE}}', solutionOutline);
+            finalPrompt = finalPrompt.replace('{{HYPOTHESIS}}', hypothesis);
+            
+            promptOutput.textContent = finalPrompt;
+            
+            if(outputSection.classList.contains('hidden')) {
+                outputSection.classList.remove('hidden');
+                // 初回生成時のみアニメーション
+                outputSection.classList.add('fade-in');
+            }
+            outputSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        copyBtn.addEventListener('click', () => {
+            const textToCopy = promptOutput.textContent;
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textToCopy).then(showCopyMessage).catch(err => {
+                    fallbackCopyTextToClipboard(textToCopy);
+                });
+            } else {
+                fallbackCopyTextToClipboard(textToCopy);
+            }
+        });
+
+        function showCopyMessage() {
+            messageBox.style.opacity = '1';
+            messageBox.style.transform = 'translate(-50%, 0)';
+            setTimeout(() => {
+                messageBox.style.opacity = '0';
+                messageBox.style.transform = 'translate(-50%, -20px)';
+            }, 2000);
+        }
+
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.top = "-9999px";
+            textArea.style.left = "-9999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                if(document.execCommand('copy')) showCopyMessage();
+            } catch (err) {
+                console.error('フォールバックコピーに失敗: ', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes shake {
+                10%, 90% { transform: translateX(-1px); }
+                20%, 80% { transform: translateX(2px); }
+                30%, 50%, 70% { transform: translateX(-4px); }
+                40%, 60% { transform: translateX(4px); }
+            }
+            .animate-shake {
+                animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
